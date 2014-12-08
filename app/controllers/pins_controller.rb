@@ -1,6 +1,13 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
 
+  def delete_all
+    Pin.delete_all
+    respond_to do |format|
+      format.html {redirect_to pins_url}
+      format.json {head :no_content}
+    end
+  end
   # GET /pins
   # GET /pins.json
   def index

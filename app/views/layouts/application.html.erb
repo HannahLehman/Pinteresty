@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pinteresty</title>
+  <title>Pinteresting.</title>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +10,8 @@
 <body>
 
 <%= yield %>
+
+<%= link_to 'Home', root_path %> | <%= link_to 'Users', users_path %> | <%= link_to 'Boards', boards_path %> | <%= link_to 'Pins', pins_path %>
 
 </body>
 </html>

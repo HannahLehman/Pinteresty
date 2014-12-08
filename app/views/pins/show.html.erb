@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @pin.name %>
+  <%= @pin.name rescue "N/A" %>
 </p>
 
 <p>
@@ -12,12 +12,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @pin.user.first_name %>
+  <%= @pin.user.full_name rescue "N/A" %>
 </p>
 
 <p>
   <strong>Board:</strong>
-  <%= @pin.board.name %>
+  <%= @pin.board.name rescue "N/A" %>
 </p>
 
 <%= link_to 'Edit', edit_pin_path(@pin) %> |

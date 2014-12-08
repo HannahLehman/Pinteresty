@@ -2,18 +2,25 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @board.name %>
+  <%= @board.name rescue "N/A" %>
 </p>
 
 <p>
   <strong>About:</strong>
-  <%= @board.about %>
+  <%= @board.about rescue "N/A" %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @board.user.first_name %>
+  <%= @board.user.first_name rescue "N/A" %>
 </p>
+
+<p>Pins on this Board:</p>
+	<ul>
+		<% @board.pins.each do |pin| %>
+		<li><%= link_to pin.name, pin_path(pin) %></li>
+		<% end %>
+	</ul>
 
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>

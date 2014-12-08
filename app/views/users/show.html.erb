@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
-
+<%= @some_text %>
 <p>
   <strong>First name:</strong>
-  <%= @user.first_name %>
+  <%= @user.full_name rescue "N/A" %>
 </p>
-
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= @user.email rescue "N/A" %>
 </p>
+
+Showing all of <%= @user.first_name %>'s Boards:
+	<ul>
+		<% @user.boards.each do |board| %>
+		<li><%= link_to board.name, board_path(board) %></li>
+		<% end %>
+	</ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+

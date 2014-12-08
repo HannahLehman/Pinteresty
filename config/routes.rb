@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+  delete '/pins' => 'pins#delete_all'
+
+  get 'static_pages/home' 
+
+  get 'static_pages/about'
+
+  root to: 'static_pages#home'
+
   resources :pins
 
   resources :boards
