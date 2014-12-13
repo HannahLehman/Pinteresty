@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'activeadmin', github: 'activeadmin'
+
+gem 'kaminari'
+
 gem 'devise'
 
 gem 'carrierwave'

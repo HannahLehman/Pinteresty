@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   delete '/pins' => 'pins#delete_all'
 
   get 'static_pages/home', as: :home
