@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   
   delete '/pins' => 'pins#delete_all'
 
-  get 'static_pages/home' 
+  get 'static_pages/home', as: :home
 
-  get 'static_pages/about'
+  get 'static_pages/about', as: :about
 
   root to: 'static_pages#home'
+
+  devise_for :users, :controllers => { :registrations => 'registrations' }
 
   resources :pins
 
