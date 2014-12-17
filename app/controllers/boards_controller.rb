@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.json
   def index
-    @boards = Board.all
+    @boards = Board.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /boards/1

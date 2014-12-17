@@ -1,5 +1,6 @@
 <div class="container">
 <h1>look who's pinning now.</h1>
+<%= will_paginate @users %>
 <div id="columns">
     <% @users.each do |user| %>
       <div class="item-background">
@@ -18,6 +19,5 @@
 </div>
 
 <br>
-
 <%= link_to 'New User', new_user_path %>
 </div>

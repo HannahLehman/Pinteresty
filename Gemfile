@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
+
+gem 'faker'
+
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'kaminari'
