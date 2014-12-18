@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'sessions/destroy'
+
+  get 'sessions/create'
+
   delete '/pins' => 'pins#delete_all'
 
   get 'static_pages/home', as: :home
@@ -9,6 +13,11 @@ Rails.application.routes.draw do
   root to: 'static_pages#home'
 
   devise_for :users, :controllers => { :registrations => 'registrations' }
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
 
   resources :pins
 
