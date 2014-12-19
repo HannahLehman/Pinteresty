@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#home'
 
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations', :sessions => 'users/sessions'}
+  # devise_scope :user do
+  #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  # end
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
